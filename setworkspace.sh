@@ -5,11 +5,41 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 # Install required packages
-sudo apt-get install -y curl unzip wget gcc clang npm python3-pip cmake make nodejs git ripgrep pkg-config libtool-bin libc6-dev lua5.1 lua5.1-dev lua-mpack fd-find fzf tree-sitter xclip universal-ctags clangd
+sudo apt-get install -y curl
+sudo apt-get install -y unzip
+sudo apt-get install -y gcc
+sudo apt-get install -y clang
+sudo apt-get install -y npm
+sudo apt-get install -y python3-pip
+sudo apt-get install -y cmake
+sudo apt-get install -y make
+sudo apt-get install -y nodejs
+sudo apt-get install -y ripgrep
+sudo apt-get install -y pkg-config
+sudo apt-get install -y libtool-bin
+sudo apt-get install -y libc6-dev
+sudo apt-get install -y lua5.1
+sudo apt-get install -y lua5.1-dev
+sudo apt-get install -y lua-mpack
+sudo apt-get install -y fd-find
+sudo apt-get install -y fzf tree-sitter
+sudo apt-get install -y xclip universal-ctags
+sudo apt-get install -y clangd
+sudo apt-get install -y cargo
+sudo apt install python3.10-venv -y 
+
+# Update and upgrade packages
+sudo apt-get update
+sudo apt-get upgrade -y
+
 # Install Neovim appImage binary
 wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+sudo mv nvim.appimage /usr/local/bin
+cd ..
+cd ..
+cd usr/local/bin
 chmod u+x nvim.appimage
-sudo mv nvim.appimage /usr/local/bin/nvim
+sudo mv nvim.appimage nvim
 
 # Set Neovim as the default editor
 echo 'export VISUAL=nvim' >> ~/.bashrc
@@ -19,15 +49,11 @@ source ~/.bashrc
 # Install pip package for Neovim
 pip3 install pynvim
 
-# Install Rustup and Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-
 # Create the workspace directory
 mkdir -p ~/workspace
-LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
 # Clone NvChad and open Neovim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/pierrelgol/c ~/workspace
 
 # Add everything to the PATH
 echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
