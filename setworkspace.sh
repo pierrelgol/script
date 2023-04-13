@@ -26,6 +26,8 @@ sudo apt-get install -y fzf tree-sitter
 sudo apt-get install -y xclip universal-ctags
 sudo apt-get install -y clangd
 sudo apt-get install -y cargo
+sudo apt-get install -y fuse
+sudo apt-get install -y gdb
 sudo apt install python3.10-venv -y 
 
 # Update and upgrade packages
@@ -34,12 +36,12 @@ sudo apt-get upgrade -y
 
 # Install Neovim appImage binary
 wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-sudo mv nvim.appimage /usr/local/bin
-cd ..
-cd ..
-cd usr/local/bin
 chmod u+x nvim.appimage
-sudo mv nvim.appimage nvim
+sudo mv nvim.appimage /usr/local/bin/nvim
+
+# Create a symbolic link for Neovim
+sudo ln -s /usr/local/bin/nvim /usr/bin/nvim
+
 
 # Set Neovim as the default editor
 echo 'export VISUAL=nvim' >> ~/.bashrc
@@ -51,9 +53,9 @@ pip3 install pynvim
 
 # Create the workspace directory
 mkdir -p ~/workspace
+
 # Clone NvChad and open Neovim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-git clone https://github.com/pierrelgol/c ~/workspace
 
 # Add everything to the PATH
 echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
