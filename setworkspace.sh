@@ -54,6 +54,8 @@ pip3 install pynvim
 # Clone NvChad and open Neovim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 git clone https://github.com/pierrelgol/workspace.git
+https://github.com/pierrelgol/script.git
+
 
 # Add everything to the PATH
 echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
