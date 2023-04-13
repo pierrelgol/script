@@ -51,11 +51,9 @@ source ~/.bashrc
 # Install pip package for Neovim
 pip3 install pynvim
 
-# Create the workspace directory
-mkdir -p ~/workspace
-
 # Clone NvChad and open Neovim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/pierrelgol/workspace.git
 
 # Add everything to the PATH
 echo 'export PATH="$PATH:/usr/local/bin"' >> ~/.bashrc
