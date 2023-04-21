@@ -42,6 +42,13 @@ sudo mv nvim.appimage /usr/local/bin/nvim
 # Create a symbolic link for Neovim
 sudo ln -s /usr/local/bin/nvim /usr/bin/nvim
 
+# Install helix appImage binary
+wget https://github.com/helix-editor/helix/releases/download/23.03/helix-23.03-x86_64.AppImage
+chmod u+x helix-23.03-x86_64.AppImage
+sudo mv helix-23.03-x86_64.AppImage /usr/local/bin/hx
+
+# Create a symbolic link for helix
+sudo ln -s /usr/local/bin/hx /usr/bin/hx
 
 # Set Neovim as the default editor
 echo 'export VISUAL=nvim' >> ~/.bashrc
